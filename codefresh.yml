@@ -10,7 +10,7 @@ steps:
     image: huli/karma
     working-directory: ${{install}}
     commands:
-      - npm test
+      - npm test -- --browsers PhantomJS
   integration-test:
     image: node
     working-directory: ${{install}}
