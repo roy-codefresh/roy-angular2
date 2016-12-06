@@ -39,7 +39,7 @@ steps:
         image: node
         volumes:
           - ${{CF_VOLUME}}:/src/
-        dependes_on:
+        depends_on:
           - selenium
           - application
 
