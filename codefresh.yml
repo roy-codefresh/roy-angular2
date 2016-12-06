@@ -2,21 +2,20 @@ version: "1.0"
 
 steps:
   install:
-    image: node:5.7.1
+    image: node
     working-directory:  ${{initial-clone}}
     commands:
       - npm install
   unit-test:
-    image: node:5.7.1
+    image: huli/karma
     working-directory: ${{install}}
     commands:
-      - pwd
-#      - npm test
+      - npm test
   integration-test:
-    image: node:5.7.1
+    image: node
     working-directory: ${{install}}
     commands:
-      - npm start
+#      - npm start
       - npm run e2e
   build:
     image: node:5.7.1
