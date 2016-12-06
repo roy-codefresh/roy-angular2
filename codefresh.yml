@@ -21,7 +21,7 @@ steps:
     image: node
     working-directory: ${{install}}
     commands:
-      - npm dist
+      - npm run dist
   image:
     type: build
     working-directory: ${{dist}}
