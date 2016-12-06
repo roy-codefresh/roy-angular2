@@ -37,6 +37,9 @@ steps:
 #            - selenium-hub:hub
 #          depends_on:
 #            - selenium-hub
+      volumes:
+        ${{CF_VOLUME}}:
+          external: true
     composition-candidates:
       test-service:
         image: node
