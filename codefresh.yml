@@ -37,8 +37,8 @@ steps:
             - selenium-hub:hub
     composition-candidates:
       test_service:
-        image: ${{install}}
-        command: npm run e2e
+        image: node
+        command: pwd
 
 
 
