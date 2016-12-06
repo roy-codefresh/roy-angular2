@@ -25,7 +25,7 @@ steps:
   image:
     type: build
     working-directory: ${{dist}}
-    dockerfile: docker-file
+    dockerfile: docker-dist/Dockerfile
     image-name: roy_angular2
 
 
