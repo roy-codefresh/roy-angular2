@@ -11,22 +11,37 @@ steps:
     working-directory: ${{install}}
     commands:
       - npm test -- --browsers PhantomJS
-#  integration-test:
-#    image: node
-#    working-directory: ${{install}}
-#    commands:
-#      - npm start &
-#      - npm run e2e --
   dist:
     image: node
     working-directory: ${{install}}
     commands:
       - npm run dist
-  image:
+  build-image:
     type: build
     working-directory: ${{dist}}
     dockerfile: docker-dist/Dockerfile
     image-name: roycodefresh/angular2
+  e2e-test:
+    type: composition
+    working-directory: ${{install}}
+    compostion:
+      version: '2'
+      services:
+        application:
+          image: ${{build-image}}
+        selenium-hub:
+          image: selenium/hub
+        selenium-chrome:
+          image: selenium/node-chrome
+          links:
+            - selenium-hub:hub
+    compostion-candidates:
+      test_service:
+        image: ${{install}}
+        command: npm run e2e
+
+
+
 
 
 
