@@ -29,14 +29,8 @@ steps:
       services:
         application:
           image: ${{build-image}}
-#        selenium-hub:
-#          image: selenium/hub
-#        selenium-chrome:
-#          image: selenium/node-chrome
-#          links:
-#            - selenium-hub:hub
-#          depends_on:
-#            - selenium-hub
+        selenium:
+          image: selenium/standalone-chrome
       volumes:
         ${{CF_VOLUME}}:
           external: true
@@ -44,8 +38,10 @@ steps:
       test-service:
         image: node
         volumes:
-          - ${{CF_VOLUME}}:/usr/src/app
-        command: curl http://application/
+          - ${{CF_VOLUME}}:/src/
+        dependes_on:
+          - selenium
+          - application
 
 
 
