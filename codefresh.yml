@@ -17,9 +17,16 @@ steps:
 #    commands:
 #      - npm start &
 #      - npm run e2e --
-  build:
+  dist:
     image: node
     working-directory: ${{install}}
     commands:
-      - npm build
-#  imaging:
+      - npm dist
+  image:
+    type: build
+    working-directory: ${{dist}}
+    dockerfile: docker-file
+    image-name: roy_angular2
+
+
+
