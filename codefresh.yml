@@ -1,6 +1,11 @@
 version: "1.0"
 
 steps:
+  e2e-test-image:
+    type: build
+    dockerfile: docker-e2e/Dockerfile
+    image-name: angular2-e2e-runner
+    tag: ${{CF_REVISON}}
   install:
     image: node
     working-directory:  ${{initial-clone}}
@@ -36,7 +41,7 @@ steps:
           external: true
     composition-candidates:
       test-service:
-        build: ${{install}}/docker-e2e
+        image: ${{e2e-test-image}}
         volumes:
           - ${{CF_VOLUME}}:/src/
         depends_on:
