@@ -47,6 +47,7 @@ steps:
         depends_on:
           - selenium
           - application
+        command: ls -la
 
 
 
