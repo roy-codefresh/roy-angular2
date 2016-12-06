@@ -33,7 +33,7 @@ steps:
           image: selenium/hub
         selenium-chrome:
           image: selenium/node-chrome
-          links:
+          depends_on:
             - selenium-hub:hub
     composition-candidates:
       test_service:
