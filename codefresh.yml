@@ -38,9 +38,11 @@ steps:
 #          depends_on:
 #            - selenium-hub
     composition-candidates:
-      test_service:
+      test-service:
         image: node
-        command: pwd
+        volumes:
+          - ${{CF_VOLUME}}:/usr/src/app
+        command: cd /usr/src/app && npm e2e -- --baseUrl=application
 
 
 
