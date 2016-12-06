@@ -6,7 +6,6 @@ steps:
     working-directory:  ${{initial-clone}}
     commands:
       - npm install
-      - npm test
   unit-test:
     image: node:5.7.1
     working-directory: ${{install}}
