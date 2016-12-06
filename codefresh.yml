@@ -15,7 +15,7 @@ steps:
     image: node
     working-directory: ${{install}}
     commands:
-#      - npm start
+      - npm start &
       - npm run e2e
   build:
     image: node:5.7.1
