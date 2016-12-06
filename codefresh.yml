@@ -29,14 +29,14 @@ steps:
       services:
         application:
           image: ${{build-image}}
-        selenium-hub:
-          image: selenium/hub
-        selenium-chrome:
-          image: selenium/node-chrome
-          links:
-            - selenium-hub:hub
-          depends_on:
-            - selenium-hub
+#        selenium-hub:
+#          image: selenium/hub
+#        selenium-chrome:
+#          image: selenium/node-chrome
+#          links:
+#            - selenium-hub:hub
+#          depends_on:
+#            - selenium-hub
     composition-candidates:
       test_service:
         image: node
