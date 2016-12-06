@@ -11,14 +11,14 @@ steps:
     working-directory: ${{install}}
     commands:
       - npm test -- --browsers PhantomJS
-  integration-test:
-    image: node
-    working-directory: ${{install}}
-    commands:
-      - npm start &
-      - npm run e2e
+#  integration-test:
+#    image: node
+#    working-directory: ${{install}}
+#    commands:
+#      - npm start &
+#      - npm run e2e --
   build:
-    image: node:5.7.1
+    image: node
     working-directory: ${{install}}
     commands:
       - npm build
