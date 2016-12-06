@@ -3,17 +3,20 @@ version: "1.0"
 steps:
   unit-testing:
     image: node:5.7.1
+    working-directory: ${{initial-clone}}
     commands:
       - npm install
       - npm test
   integration test:
     image: node:5.7.1
+    working-directory: ${{initial-clone}}
     commands:
       - npm install
       - npm start
       - npm run e2e
   compiling:
     image: node:5.7.1
+    working-directory: ${{initial-clone}}
     commands:
       - npm install
       - npm build
