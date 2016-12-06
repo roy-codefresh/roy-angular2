@@ -7,11 +7,11 @@ steps:
     commands:
       - npm install
       - npm test
-#  unit-test:
-#    image: node:5.7.1
-#    working-directory: ${{install}}
-#    commands:
-#      - pwd
+  unit-test:
+    image: node:5.7.1
+    working-directory: ${{install}}
+    commands:
+      - pwd
 #      - npm test
   integration-test:
     image: node:5.7.1
