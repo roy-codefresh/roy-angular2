@@ -36,7 +36,7 @@ steps:
           external: true
     composition-candidates:
       test-service:
-        image: node
+        build: ./docker-e2e
         volumes:
           - ${{CF_VOLUME}}:/src/
         depends_on:
