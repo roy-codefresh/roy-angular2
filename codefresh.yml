@@ -45,7 +45,7 @@ steps:
         image: node
         volumes:
           - ${{CF_VOLUME}}:/usr/src/app
-        command: 'bash -c "cd /usr/src/app \n npm e2e -- --baseUrl=application"'
+        command: curl http://application/
 
 
 
