@@ -26,27 +26,27 @@ steps:
     working-directory: ${{dist}}
     dockerfile: docker-dist/Dockerfile
     image-name: roycodefresh/angular2
-  e2e-test:
-    type: composition
-    working-directory: ${{install}}
-    composition:
-      version: '2'
-      services:
-        application:
-          image: ${{build-image}}
-        selenium:
-          image: selenium/standalone-chrome
-      volumes:
-        ${{CF_VOLUME}}:
-          external: true
-    composition-candidates:
-      test-service:
-        image: ${{e2e-test-image}}
-        volumes:
-          - ${{CF_VOLUME}}:/src/
-        depends_on:
-          - selenium
-          - application
+#  e2e-test:
+#    type: composition
+#    working-directory: ${{install}}
+#    composition:
+#      version: '2'
+#      services:
+#        application:
+#          image: ${{build-image}}
+#        selenium:
+#          image: selenium/standalone-chrome
+#      volumes:
+#        ${{CF_VOLUME}}:
+#          external: true
+#    composition-candidates:
+#      test-service:
+#        image: ${{e2e-test-image}}
+#        volumes:
+#          - ${{CF_VOLUME}}:/src/
+#        depends_on:
+#          - selenium
+#          - application
 
 
 
